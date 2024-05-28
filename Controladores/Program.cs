@@ -2,14 +2,16 @@
 using EduRecuperacionC.Util;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
+using EduRecuperacionC.Dtos;
 using EduRecuperacionC.Servicios;
 
 namespace EduRecuperacionC.Controladores
 {  
     class Program
-    {       
+    {           
         public static string rutaCarpetaLogs = "C:\\Users\\JCB\\Desktop\\Prog\\Logs\\";
         public static string rutaFicheroLog = string.Concat(rutaCarpetaLogs, Util.Utilidades.crearNombreLog());
+        public static List<AlumnoDto> listaAlumno = new List<AlumnoDto>();
 
         static void Main(string[] args)
         {

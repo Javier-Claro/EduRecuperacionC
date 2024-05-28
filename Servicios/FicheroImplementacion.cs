@@ -10,9 +10,23 @@ namespace EduRecuperacionC.Servicios
     {
         public void EscribirFichero(string texto)
         {
-            StreamWriter sw = new StreamWriter(Controladores.Program.rutaFicheroLog, true);
+            StreamWriter sw = null; 
+            
+            try {
+                using (sw = new StreamWriter(Controladores.Program.rutaFicheroLog, true)){ 
+
             sw.WriteLine(texto);
-            sw.Close();
+                }           
+            }
+
+            catch(Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally { 
+                if (sw != null)  
+                sw.Close();               
+            }
         }
     }
 }

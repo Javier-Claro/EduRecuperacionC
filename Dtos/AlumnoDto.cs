@@ -10,7 +10,7 @@ namespace EduRecuperacionC.Dtos
     {
         //"nombre, apll1, apll2, dni, direcc, tlf, email"
 
-        //int id = 0;
+        int idAlumno = 000;
         string nombre = "aaaaa";
         string apellido1 = "aaaaa";
         string apellido2 = "aaaaa";
@@ -19,6 +19,7 @@ namespace EduRecuperacionC.Dtos
         int telefono = 366464;
         string email = "aaaaa";
 
+        public int IdAlumno { get => idAlumno; set => idAlumno = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido1 { get => apellido1; set => apellido1 = value; }
         public string Apellido2 { get => apellido2; set => apellido2 = value; }
