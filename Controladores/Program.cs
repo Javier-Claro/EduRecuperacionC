@@ -60,7 +60,7 @@ namespace EduRecuperacionC.Controladores
                 }
                 catch(Exception ex)
                 {
-                    fich.EscribirFichero("Ha ocurrido un error en el Menu.");;
+                    fich.EscribirFichero(string.Concat("Ha ocurrido un error en ", ex));;
                 }
 
             } while (salirMenu);
