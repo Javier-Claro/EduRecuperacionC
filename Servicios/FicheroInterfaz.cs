@@ -9,5 +9,7 @@ namespace EduRecuperacionC.Servicios
     internal interface FicheroInterfaz
     {
         public void EscribirFichero(string texto);
+
+        public void anyadirAlumnosFichero();
     }
 }

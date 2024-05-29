@@ -19,6 +19,19 @@ namespace EduRecuperacionC.Dtos
         int telefono = 366464;
         string email = "aaaaa";
 
+        public AlumnoDto(int idAlumno, string nombre, string apellido1, string apellido2, string dni, string direccion, int telefono, string email)
+        {
+            this.idAlumno = idAlumno;
+            this.nombre = nombre;
+            this.apellido1 = apellido1;
+            this.apellido2 = apellido2;
+            this.dni = dni;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.email = email;
+        }
+        public AlumnoDto() { }
+
         public int IdAlumno { get => idAlumno; set => idAlumno = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido1 { get => apellido1; set => apellido1 = value; }
@@ -27,5 +40,21 @@ namespace EduRecuperacionC.Dtos
         public string Direccion { get => direccion; set => direccion = value; }
         public int Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
-    }
+
+
+        override
+        public string ToString()
+        {
+            string registroAlumno = string.Concat(this.dni, " - ", this.nombre);
+
+            return registroAlumno;
+        }
+
+        public string ToString(char puntoComa)
+        {
+            string listadoFichero = string.Concat(this.dni, puntoComa, this.nombre, "\n");
+
+            return listadoFichero;
+        }
+    }   
 }

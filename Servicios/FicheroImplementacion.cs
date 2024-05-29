@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EduRecuperacionC.Controladores;
+using EduRecuperacionC.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,7 @@ namespace EduRecuperacionC.Servicios
             StreamWriter sw = null; 
             
             try {
-                using (sw = new StreamWriter(Controladores.Program.rutaFicheroLog, true)){ 
+                using (sw = new StreamWriter(Program.rutaFicheroLog, true)){ 
 
             sw.WriteLine(texto);
                 }           
@@ -26,6 +28,33 @@ namespace EduRecuperacionC.Servicios
             finally { 
                 if (sw != null)  
                 sw.Close();               
+            }
+        }
+
+        public void anyadirAlumnosFichero()
+        {
+            StreamWriter sw = null;
+
+            try
+            {
+                using (sw = new StreamWriter(Program.rutaFicheroAlumno, true))
+                {
+                    foreach (AlumnoDto alumno in Program.listaAlumno)
+                    {
+                        sw.Write(alumno.ToString(';'));
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            finally
+            {
+                if (sw != null)
+                    sw.Close();
             }
         }
     }

@@ -10,12 +10,14 @@ namespace EduRecuperacionC.Servicios
     {
         public int Menu()
         {
-            int opcion = 7;
+            int opcion = 9;
             try { 
             Console.WriteLine("\n\t\t0: cierre Menu");
-            Console.WriteLine("\n\t\t1: alta Objeto");
-            opcion = Convert.ToInt32(Console.ReadLine());
-                              
+            Console.WriteLine("\n\t\t1: alta Alumno");
+            Console.WriteLine("\n\t\t2: baja Alumno");
+            Console.WriteLine("\n\t\t3: mostrar Alumnos");
+            Console.WriteLine("\n\t\t4: añadir en fichero Alumnos");
+                opcion = Convert.ToInt32(Console.ReadLine());                              
             }
 
             catch(Exception ex)

@@ -34,7 +34,7 @@ namespace EduRecuperacionC.Util
 
         public static List<AlumnoDto> idAutogeneradoAlumno()
         {
-            List<AlumnoDto> nuevaListaAlumno = Controladores.Program.listaAlumno;
+            List<AlumnoDto> nuevaListaAlumno = Program.listaAlumno;
 
             int tamanyoLista = nuevaListaAlumno.Count;
             long nuevaId;

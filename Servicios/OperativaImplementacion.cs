@@ -1,10 +1,10 @@
 ﻿using EduRecuperacionC.Dtos;
+using EduRecuperacionC.Controladores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EduRecuperacionC.Dtos;
 
 namespace EduRecuperacionC.Servicios
 {
@@ -12,9 +12,6 @@ namespace EduRecuperacionC.Servicios
     {
         public void AñadirAlumno()
         {
-            try { }
-            catch (Exception ex) { }
-            finally { }
             AlumnoDto nuevoAlumno = new AlumnoDto();
 
             Console.Write("\n\tIndique su nombre: ");
@@ -38,8 +35,33 @@ namespace EduRecuperacionC.Servicios
             Console.Write("\n\tIndique su email: ");
             nuevoAlumno.Email = Console.ReadLine();
 
-            Controladores.Program.listaAlumno.Add(nuevoAlumno);
+           Program.listaAlumno.Add(nuevoAlumno);
         }
 
+
+        public void EliminarAlumno()
+        {
+            Console.Write("Indique el Dni del alumno a eliminar: ");
+            string fueraAlumno = Console.ReadLine();
+
+            AlumnoDto alumnoBorrar = new AlumnoDto();
+
+            foreach (AlumnoDto alumno  in Program.listaAlumno)
+            {
+                if (alumno.Dni.Equals(fueraAlumno))
+                {
+                    alumnoBorrar = alumno;                    
+                }
+            }           
+            Program.listaAlumno.Remove(alumnoBorrar);
+        }
+
+        public void mostrarAlumno()
+        {
+            foreach (AlumnoDto alumno in Program.listaAlumno)
+            {
+                Console.WriteLine(alumno.ToString());
+            }
+        }
     }
 }
