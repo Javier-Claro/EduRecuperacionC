@@ -15,7 +15,8 @@ namespace EduRecuperacionC.Servicios
             StreamWriter sw = null; 
             
             try {
-                using (sw = new StreamWriter(Program.rutaFicheroLog, true)){ 
+                using (sw = new StreamWriter(Program.rutaFicheroLog, true))
+                { 
 
             sw.WriteLine(texto);
                 }           
