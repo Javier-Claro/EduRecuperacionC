@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EduRecuperacionC.Dtos;
 using EduRecuperacionC.Controladores;
 using System.Collections;
 
@@ -23,7 +22,7 @@ namespace EduRecuperacionC.Util
            
             //Luego pasas el DateTime a string para luego concatenar el nombre entero del fichero:
             string fecha = fechaActual.ToString("ddMMyy");
-            nombreLog = string.Concat("log-",fecha,".txt");           
+            nombreLog = string.Concat("log-",fecha,".txt");          
             }
             catch(Exception ex)
             {
@@ -48,6 +47,20 @@ namespace EduRecuperacionC.Util
             }
 
             return nuevaListaAlumno;
+        }
+
+        public static bool continuidad(string texto)
+        {
+            bool patata = false;
+            char siOno = 'k';
+            do
+            {
+                Console.Write("\n\t" + texto);
+                siOno = Convert.ToChar(Console.ReadLine());
+
+            }while (siOno == 'n' || siOno == 's');
+
+            return patata;
         }
     }
 }

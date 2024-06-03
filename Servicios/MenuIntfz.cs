@@ -9,5 +9,7 @@ namespace EduRecuperacionC.Servicios
     internal interface MenuIntfz
     {
         public int Menu();
+
+        public int MenuModificarAlumno();
     }
 }

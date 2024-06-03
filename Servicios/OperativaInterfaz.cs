@@ -14,5 +14,7 @@ namespace EduRecuperacionC.Servicios
         public void EliminarAlumno();
 
         public void mostrarAlumno();
+
+        public void ModificarAlumno(int opcion);
     }
 }

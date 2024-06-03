@@ -13,7 +13,6 @@ namespace EduRecuperacionC.Controladores
         public static string rutaFicheroLog = string.Concat(rutaCarpetaLogs, Utilidades.crearNombreLog());
         public static string rutaFicheroAlumno = "C:\\Users\\JCB\\Desktop\\patata.txt";
         public static List<AlumnoDto> listaAlumno = new List<AlumnoDto>();
-
         static void Main(string[] args)
         {
             MenuIntfz men = new MenuImpl();
@@ -21,10 +20,20 @@ namespace EduRecuperacionC.Controladores
             OperativaInterfaz opr = new OperativaImplementacion();
             bool salirMenu = true;
 
+            try
+            {
+                fich.cargarListaAlumno();
+            }
+            catch(Exception ex)
+            {
+                fich.EscribirFichero(string.Concat("Ha ocurrido un error en ", ex));
+            }
+
             do
             {
                 try { 
-                int opcion = men.Menu();          
+                int opcion = men.Menu();
+                int opcionModificarAlumno;
                 switch(opcion)
                 {
                     case 0:
@@ -55,6 +64,12 @@ namespace EduRecuperacionC.Controladores
                         fich.EscribirFichero(Convert.ToString(opcion));
 
                             fich.anyadirAlumnosFichero();
+                            break;
+
+                    case 5:
+                        fich.EscribirFichero(Convert.ToString(opcion));
+
+                            opcionModificarAlumno = men.MenuModificarAlumno();
                             break;
                     }
                 }

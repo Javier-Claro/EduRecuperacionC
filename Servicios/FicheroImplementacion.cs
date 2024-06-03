@@ -38,7 +38,7 @@ namespace EduRecuperacionC.Servicios
 
             try
             {
-                using (sw = new StreamWriter(Program.rutaFicheroAlumno, true))
+                using (sw = new StreamWriter(Program.rutaFicheroAlumno))
                 {
                     foreach (AlumnoDto alumno in Program.listaAlumno)
                     {
@@ -56,6 +56,42 @@ namespace EduRecuperacionC.Servicios
             {
                 if (sw != null)
                     sw.Close();
+            }
+        }
+
+        public void cargarListaAlumno()
+        {
+            string ruta = Program.rutaFicheroAlumno;
+
+            string[] fichero = File.ReadAllLines(ruta);
+
+            long id = 0;
+
+            foreach (string s in fichero)
+            {
+                AlumnoDto alm = new AlumnoDto();
+
+                string[] campos = s.Split(';');
+
+                alm.Dni = campos[0];
+
+                alm.Nombre = campos[1];
+
+                alm.IdAlumno = Convert.ToInt32(campos[2]);
+
+                alm.Apellido1 = campos[3];
+
+                alm.Apellido2 = campos[4];
+
+                alm.Direccion = campos[5];
+
+                alm.Telefono = Convert.ToInt32(campos[6]);
+
+                alm.Email = campos[7];
+
+                alm.FechaNacimiento = Convert.ToDateTime(campos[8]);
+
+                Program.listaAlumno.Add(alm);
             }
         }
     }

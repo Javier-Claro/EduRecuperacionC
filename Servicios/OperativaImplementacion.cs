@@ -35,7 +35,10 @@ namespace EduRecuperacionC.Servicios
             Console.Write("\n\tIndique su email: ");
             nuevoAlumno.Email = Console.ReadLine();
 
-           Program.listaAlumno.Add(nuevoAlumno);
+            Console.Write("\n\tIndique su fecha de nacimiento: ");
+            nuevoAlumno.FechaNacimiento = Convert.ToDateTime(Console.ReadLine());
+
+            Program.listaAlumno.Add(nuevoAlumno);
         }
 
 
@@ -61,6 +64,62 @@ namespace EduRecuperacionC.Servicios
             foreach (AlumnoDto alumno in Program.listaAlumno)
             {
                 Console.WriteLine(alumno.ToString());
+            }
+        }
+
+        public void ModificarAlumno(int opcion)
+        {
+            Console.Write("Indique el Dni del alumno a modificar: ");
+            string modAlumno = Console.ReadLine();
+
+            AlumnoDto modificarAlumno = new AlumnoDto();
+
+            foreach (AlumnoDto alumno in Program.listaAlumno)
+            {
+                if (alumno.Dni.Equals(modAlumno))
+                {
+                    modificarAlumno = alumno;
+
+                    switch(opcion)
+                    {
+                        case 1:
+                            Console.Write("Indique el nuevo nombre: ");
+                            modificarAlumno.Nombre = Console.ReadLine();
+                            break;
+
+                        case 2:
+                            Console.Write("\n\tIndique su primer apellido: ");
+                            modificarAlumno.Apellido1 = Console.ReadLine();
+                            break;
+
+                        case 3:
+                            Console.Write("\n\tIndique su segundo apellido: ");
+                            modificarAlumno.Apellido2 = Console.ReadLine();
+                            break;
+
+                        case 4:
+                            Console.Write("\n\tIndique su dirección: ");
+                            modificarAlumno.Direccion = Console.ReadLine();
+                            break;
+
+                        case 5:
+                            Console.Write("\n\tIndique su teléfono: ");
+                            modificarAlumno.Telefono = Convert.ToInt32(Console.ReadLine());
+                            break;
+
+                        case 6:
+                            Console.Write("\n\tIndique su email: ");
+                            modificarAlumno.Email = Console.ReadLine();
+                            break;
+
+                        case 7:
+                            Console.Write("\n\tIndique su fecha de nacimiento: ");
+                            modificarAlumno.FechaNacimiento = Convert.ToDateTime(Console.ReadLine());
+                            break;
+                    }
+
+                    Program.listaAlumno.Add(modificarAlumno);
+                }
             }
         }
     }
